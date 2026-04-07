@@ -306,7 +306,6 @@
     <button class="cta-btn" id="btn-cta" onclick="enviarForm()">QUERO RECEBER O ACESSO</button>
     <p class="form-disclaimer">Seus dados estão seguros. Não vendo, não repasso pra ninguém.</p>
   </div>
-  <iframe name="hidden_iframe" style="display:none;"></iframe>
   <script>
   function enviarForm(){
     var nome=document.getElementById('f-nome').value.trim();
@@ -315,21 +314,14 @@
     if(!nome||!email||!tel){alert('Preencha todos os campos.');return;}
     var btn=document.getElementById('btn-cta');
     btn.disabled=true;btn.textContent='ENVIANDO...';
-    var form=document.createElement('form');
-    form.method='POST';
-    form.action='https://script.google.com/macros/s/AKfycbxOCSAQqgkNkW8VvHs0Lwf80a9MEoPvBFhKst-oA99hIKqN4kUxcoqI7YJdFkISCq7z/exec';
-    form.target='hidden_iframe';
-    [{name:'nome',value:nome},{name:'email',value:email},{name:'whatsapp',value:tel}].forEach(function(f){
-      var i=document.createElement('input');
-      i.type='hidden';i.name=f.name;i.value=f.value;
-      form.appendChild(i);
+    var url='https://script.google.com/macros/s/AKfycbxOCSAQqgkNkW8VvHs0Lwf80a9MEoPvBFhKst-oA99hIKqN4kUxcoqI7YJdFkISCq7z/exec';
+    fetch(url,{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:'nome='+encodeURIComponent(nome)+'&email='+encodeURIComponent(email)+'&whatsapp='+encodeURIComponent(tel)
     });
-    document.body.appendChild(form);
-    document.querySelector('iframe[name="hidden_iframe"]').onload=function(){
-      window.location.href='/obrigado';
-    };
-    setTimeout(function(){window.location.href='/obrigado';},3000);
-    form.submit();
+    setTimeout(function(){window.location.href='/obrigado';},1500);
   }
   </script>
 
