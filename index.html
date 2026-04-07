@@ -314,7 +314,7 @@
     if(!nome||!email||!tel){alert('Preencha todos os campos.');return;}
     var btn=document.getElementById('btn-cta');
     btn.disabled=true;btn.textContent='ENVIANDO...';
-    fetch('https://script.google.com/macros/s/AKfycbzxrR86s2m7UaAcpIbVtyqx5jZmbv_CUy9leP91Dc3cGr0PTB-Fc-BVmUcXxJCwDTrX/exec',{
+    fetch('https://script.google.com/macros/s/AKfycbxOCSAQqgkNkW8VvHs0Lwf80a9MEoPvBFhKst-oA99hIKqN4kUxcoqI7YJdFkISCq7z/exec',{
       method:'POST',
       body:JSON.stringify({nome:nome,email:email,whatsapp:tel})
     }).then(function(){
