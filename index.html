@@ -276,9 +276,9 @@
   <div class="badge"><div class="badge-dot"></div>Menos de 2 minutos — assista antes de sair</div>
 
   <h1 class="headline">
-    Descubra a estratégia<br>
-    de <em>inversão</em> pra buscar<br>
-    <span class="gold">vela rosa</span> que tem a maior<br>
+    Descubra o padrão<br>
+    de <em>contagem</em> de rodadas<br>
+    pra buscar <span class="gold">vela rosa</span> com maior<br>
     assertividade que já vi
   </h1>
 
@@ -306,6 +306,7 @@
     <button class="cta-btn" id="btn-cta" onclick="enviarForm()">QUERO RECEBER O ACESSO</button>
     <p class="form-disclaimer">Seus dados estão seguros. Não vendo, não repasso pra ninguém.</p>
   </div>
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
   <script>
   function enviarForm(){
     var nome=document.getElementById('f-nome').value.trim();
@@ -314,14 +315,21 @@
     if(!nome||!email||!tel){alert('Preencha todos os campos.');return;}
     var btn=document.getElementById('btn-cta');
     btn.disabled=true;btn.textContent='ENVIANDO...';
-    fetch('https://script.google.com/macros/s/AKfycbxOCSAQqgkNkW8VvHs0Lwf80a9MEoPvBFhKst-oA99hIKqN4kUxcoqI7YJdFkISCq7z/exec',{
-      method:'POST',
-      body:JSON.stringify({nome:nome,email:email,whatsapp:tel})
-    }).then(function(){
-      window.location.href='/obrigado';
-    }).catch(function(){
-      window.location.href='/obrigado';
+    var form=document.createElement('form');
+    form.method='POST';
+    form.action='https://script.google.com/macros/s/AKfycbxOCSAQqgkNkW8VvHs0Lwf80a9MEoPvBFhKst-oA99hIKqN4kUxcoqI7YJdFkISCq7z/exec';
+    form.target='hidden_iframe';
+    [{name:'nome',value:nome},{name:'email',value:email},{name:'whatsapp',value:tel}].forEach(function(f){
+      var i=document.createElement('input');
+      i.type='hidden';i.name=f.name;i.value=f.value;
+      form.appendChild(i);
     });
+    document.body.appendChild(form);
+    document.querySelector('iframe[name="hidden_iframe"]').onload=function(){
+      window.location.href='/obrigado';
+    };
+    setTimeout(function(){window.location.href='/obrigado';},3000);
+    form.submit();
   }
   </script>
 
