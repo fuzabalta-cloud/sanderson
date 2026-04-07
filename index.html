@@ -314,9 +314,11 @@
     if(!nome||!email||!tel){alert('Preencha todos os campos.');return;}
     var btn=document.getElementById('btn-cta');
     btn.disabled=true;btn.textContent='ENVIANDO...';
+    var url='https://script.google.com/macros/s/AKfycbxOCSAQqgkNkW8VvHs0Lwf80a9MEoPvBFhKst-oA99hIKqN4kUxcoqI7YJdFkISCq7z/exec';
     var form=document.createElement('form');
     form.method='POST';
-    form.action='https://script.google.com/macros/s/AKfycbxOCSAQqgkNkW8VvHs0Lwf80a9MEoPvBFhKst-oA99hIKqN4kUxcoqI7YJdFkISCq7z/exec';
+    form.action=url;
+    form.target='hidden_frame';
     [{name:'nome',value:nome},{name:'email',value:email},{name:'whatsapp',value:tel}].forEach(function(f){
       var i=document.createElement('input');
       i.type='hidden';i.name=f.name;i.value=f.value;
@@ -324,8 +326,10 @@
     });
     document.body.appendChild(form);
     form.submit();
+    setTimeout(function(){window.location.href='/obrigado';},2000);
   }
   </script>
+  <iframe name="hidden_frame" style="display:none;"></iframe>
 
   <div class="arrow-hint">
     <span>saiba mais abaixo</span>
