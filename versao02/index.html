@@ -83,12 +83,16 @@
 
   /* ─── PHASE 2 — hidden until timer fires ─── */
   .phase2{
+    max-height:0;
+    overflow:hidden;
     opacity:0;
     pointer-events:none;
-    transition:opacity 1.2s ease;
+    transition:opacity 1.2s ease, max-height 0s;
     position:relative; z-index:1;
   }
   .phase2.visible{
+    max-height:none;
+    overflow:visible;
     opacity:1;
     pointer-events:auto;
   }
@@ -274,16 +278,9 @@
     </div>
   </div>
 
-</div><!-- /phase1 -->
 
-<!-- ═══ PHASE 2 — aparece após 260s ═══ -->
-<div class="phase2" id="phase2">
-
-<div class="divider"></div>
-
-<!-- FORM -->
-<div class="gets-section" style="padding-bottom:0;">
-  <div class="form-below" style="max-width:100%;">
+  <!-- FORM abaixo do vídeo -->
+  <div class="form-below">
     <p class="form-pretitle">Acesso gratuito</p>
     <p class="form-title">Clica e faça seu cadastro</p>
     <div class="form-fields">
@@ -294,7 +291,6 @@
     <button class="cta-btn" id="btn-cta" onclick="enviarForm()">QUERO RECEBER O ACESSO</button>
     <p class="form-disclaimer">Seus dados estão seguros. Não vendo, não repasso pra ninguém.</p>
   </div>
-</div>
 
 <script>
 function enviarForm(){
@@ -315,7 +311,12 @@ function enviarForm(){
 }
 </script>
 
-<div class="divider" style="margin-top:40px;"></div>
+</div><!-- /phase1 -->
+
+<!-- ═══ PHASE 2 — aparece após 260s ═══ -->
+<div class="phase2" id="phase2">
+
+<div class="divider"></div>
 
 <!-- GETS -->
 <div class="gets-section">
