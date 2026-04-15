@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#060a14"/>
+<title>Cronos — Titã do Gráfico | Comunidade Gratuita no Telegram</title>
+<meta name="description" content="Entre na comunidade gratuita do Cronos no Telegram. Aprenda a Cronologia das Velas Rosas e domine o Aviator com método.">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+:root{
+  --blue:#1a6fff;
+  --blue-light:#4d94ff;
+  --blue-dark:#0d4abf;
+  --gold:#c9a84c;
+  --gl:#f0d080;
+  --gd:#8a6e2f;
+  --tg:#2AABEE;
+  --tg-dark:#1c93d0;
+  --bg:#060a14;
+  --bg2:#0b1020;
+  --surf:#111827;
+  --bdr:rgba(26,111,255,.2);
+  --bdr-gold:rgba(201,168,76,.2);
+  --txt:#eef0f6;
+  --mut:#6b7a99;
+  --r:12px;
+}
+
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+.w{max-width:660px;margin:0 auto;padding:0 20px}
+
+@keyframes sh{to{left:160%}}
+@keyframes pg{0%,100%{box-shadow:0 0 14px rgba(42,171,238,.4)}50%{box-shadow:0 0 28px rgba(42,171,238,.7)}}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+.au{opacity:0}
+.au.v{animation:fu .55s ease forwards}
+
+/* ===== BAR ===== */
+.bar{
+  background:linear-gradient(90deg,var(--blue-dark),var(--blue),var(--blue-dark));
+  color:#fff;text-align:center;
+  font-size:.77rem;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;
+  padding:9px 16px;
+  position:relative;overflow:hidden;
+}
+.bar::after{
+  content:'';position:absolute;
+  top:0;left:-100%;width:55%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  animation:sh 2.4s infinite;
+}
+
+/* ===== HERO ===== */
+.hero{
+  padding:48px 0 36px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;
+  top:-130px;left:50%;transform:translateX(-50%);
+  width:520px;height:520px;
+  background:radial-gradient(ellipse,rgba(26,111,255,.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+.badge{
+  display:inline-block;
+  border:1px solid var(--bdr);
+  background:rgba(26,111,255,.08);
+  color:var(--blue-light);
+  font-size:.69rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:6px 18px;border-radius:100px;
+  margin-bottom:22px;
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.85rem,7.5vw,2.9rem);
+  font-weight:900;line-height:1.12;
+  letter-spacing:-.02em;margin-bottom:18px;
+}
+.hl{
+  background:linear-gradient(135deg,var(--gl),var(--gold));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  font-style:italic;
+}
+.hl-blue{
+  background:linear-gradient(135deg,var(--blue-light),var(--blue));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.sub{
+  font-size:clamp(.93rem,3.2vw,1.1rem);
+  color:#8899bb;max-width:490px;
+  margin:0 auto 30px;font-weight:400;
+}
+
+/* ===== TELEGRAM BUTTON ===== */
+.btn-tg{
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;width:100%;max-width:420px;
+  margin:0 auto;padding:19px 24px;
+  background:linear-gradient(135deg,#2AABEE,#1c93d0 55%,#1580b8);
+  color:#fff;font-family:'DM Sans',sans-serif;
+  font-size:.97rem;font-weight:800;
+  letter-spacing:.04em;text-transform:uppercase;
+  border:none;cursor:pointer;text-decoration:none;
+  border-radius:var(--r);
+  position:relative;overflow:hidden;
+  transition:filter .15s,transform .15s;
+  box-shadow:0 6px 26px rgba(42,171,238,.3);
+}
+.btn-tg::after{
+  content:'';position:absolute;
+  top:0;left:-100%;width:55%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
+  animation:sh 2s infinite;
+}
+.btn-tg:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn-tg:active{transform:translateY(0)}
+
+.btn-tg-sm{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:8px;padding:14px 28px;
+  background:linear-gradient(135deg,var(--gold),var(--gd));
+  color:#000;font-family:'DM Sans',sans-serif;
+  font-size:.85rem;font-weight:800;
+  letter-spacing:.04em;text-transform:uppercase;
+  border:none;cursor:pointer;text-decoration:none;
+  border-radius:8px;margin-top:12px;
+  position:relative;overflow:hidden;
+  transition:filter .15s,transform .15s;
+  box-shadow:0 4px 18px rgba(201,168,76,.25);
+}
+.btn-tg-sm::after{
+  content:'';position:absolute;
+  top:0;left:-100%;width:55%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+  animation:sh 2.2s infinite;
+}
+.btn-tg-sm:hover{filter:brightness(1.06);transform:translateY(-1px)}
+
+.note{
+  display:flex;align-items:center;justify-content:center;
+  gap:5px;margin-top:12px;
+  font-size:.71rem;color:#3a4a6a;
+}
+
+.hero-buttons{
+  display:flex;flex-direction:column;gap:10px;
+  align-items:center;margin-bottom:6px;
+}
+
+/* ===== MARQUEE ===== */
+.marquee{
+  padding:18px 0;
+  overflow:hidden;
+  border-top:1px solid rgba(26,111,255,.08);
+  border-bottom:1px solid rgba(26,111,255,.08);
+  background:rgba(26,111,255,.03);
+}
+.marquee-track{
+  display:flex;gap:0;
+  width:max-content;
+  animation:scroll 20s linear infinite;
+}
+.marquee-item{
+  flex-shrink:0;
+  padding:0 32px;
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;
+  font-weight:900;
+  color:var(--gold);
+  opacity:.7;
+  white-space:nowrap;
+}
+.marquee-item::after{
+  content:'•';
+  margin-left:32px;
+  color:var(--blue);
+  opacity:.4;
+}
+
+/* ===== SECTIONS ===== */
+.sec{padding:54px 0}
+.sl{
+  font-size:.67rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--blue-light);text-align:center;margin-bottom:8px;
+}
+h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.4rem,5vw,2rem);
+  font-weight:800;text-align:center;
+  margin-bottom:34px;line-height:1.2;
+}
+
+/* ===== TESTIMONIAL GRID ===== */
+.proof-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+@media(max-width:420px){.proof-grid{grid-template-columns:1fr}}
+
+.proof-card{
+  background:var(--surf);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--r);
+  padding:16px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.proof-person{
+  display:flex;align-items:center;gap:10px;
+}
+.proof-av{
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(26,111,255,.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:700;color:var(--blue-light);
+  flex-shrink:0;
+}
+.proof-name{font-size:.8rem;font-weight:600}
+.proof-city{font-size:.65rem;color:var(--mut)}
+.proof-quote{
+  font-size:.79rem;color:#99aabb;line-height:1.6;
+  font-style:italic;
+}
+.proof-amount{
+  display:inline-block;
+  background:rgba(42,171,238,.1);
+  border:1px solid rgba(42,171,238,.2);
+  border-radius:6px;padding:3px 10px;
+  font-size:.72rem;font-weight:700;
+  color:var(--tg);margin-top:2px;
+}
+
+/* ===== STATS ===== */
+.stats-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;margin-bottom:32px;
+}
+.stat-card{
+  background:var(--surf);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--r);padding:18px 10px;
+  text-align:center;
+}
+.stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem;font-weight:900;
+  color:var(--gold);line-height:1;
+}
+.stat-label{font-size:.65rem;color:var(--mut);margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+
+/* ===== QUOTE BLOCK ===== */
+.quote-block{
+  background:linear-gradient(135deg,rgba(26,111,255,.06),rgba(201,168,76,.04));
+  border:1px solid var(--bdr);
+  border-radius:var(--r);padding:24px 22px;
+  text-align:center;margin-top:28px;
+}
+.quote-block p{
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem;font-style:italic;
+  color:#aabbcc;line-height:1.6;
+  margin-bottom:10px;
+}
+.quote-block .attr{font-size:.75rem;color:var(--gold);font-weight:600}
+
+/* ===== FAQ ===== */
+.faq{display:flex;flex-direction:column;gap:9px}
+.fi{
+  background:var(--bg2);
+  border:1px solid rgba(255,255,255,.055);
+  border-radius:8px;overflow:hidden;
+}
+.fq{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 17px;cursor:pointer;
+  font-weight:500;font-size:.88rem;
+  gap:12px;user-select:none;
+}
+.fq svg{flex-shrink:0;transition:transform .3s;color:var(--mut)}
+.fi.open .fq svg{transform:rotate(180deg)}
+.fa{
+  max-height:0;overflow:hidden;
+  transition:max-height .35s ease,padding .3s;
+  padding:0 17px;color:var(--mut);
+  font-size:.84rem;line-height:1.7;
+}
+.fi.open .fa{max-height:260px;padding:0 17px 15px}
+
+/* ===== FINAL CTA ===== */
+.fin{padding:58px 0 70px;text-align:center;position:relative;overflow:hidden}
+.fin::before{
+  content:'';position:absolute;
+  bottom:-70px;left:50%;transform:translateX(-50%);
+  width:460px;height:460px;
+  background:radial-gradient(ellipse,rgba(26,111,255,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.fin h2{margin-bottom:11px}
+.fin p{color:var(--mut);max-width:400px;margin:0 auto 24px;font-size:.9rem}
+
+/* ===== FLOATING TG ===== */
+.wf{
+  position:fixed;bottom:20px;right:16px;
+  width:52px;height:52px;border-radius:50%;
+  background:var(--tg);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 18px rgba(42,171,238,.4);
+  z-index:9997;text-decoration:none;
+  animation:pg 2.5s infinite;
+  transition:transform .2s;
+}
+.wf:hover{transform:scale(1.1)}
+
+/* ===== FOOTER ===== */
+footer{
+  border-top:1px solid rgba(255,255,255,.04);
+  padding:26px 20px;text-align:center;
+  color:#1e2a44;font-size:.71rem;line-height:1.9;
+}
+footer a{color:#2a3a5a;text-decoration:none}
+
+/* ===== DISCLAIMER ===== */
+.disclaimer{
+  max-width:660px;margin:0 auto;
+  padding:0 20px 20px;
+  font-size:.6rem;color:#1a2240;
+  text-align:center;line-height:1.7;
+}
+</style>
+</head>
+<body>
+
+<!-- BAR -->
+<div class="bar">🔒 Vagas Limitadas — A comunidade pode <strong>fechar a qualquer momento</strong></div>
+
+<!-- HERO -->
+<section class="hero">
+<div class="w">
+
+  <span class="badge au">✦ Comunidade Gratuita</span>
+
+  <h1 class="au">
+    Aprenda a ler o gráfico<br>
+    <span class="hl">antes de entrar.</span><br>
+    <span class="hl-blue">Domine o tempo.</span>
+  </h1>
+
+  <p class="sub au">
+    Entre na comunidade do <strong style="color:#fff">Cronos — Titã do Gráfico</strong> e aprenda
+    a Cronologia das Velas Rosas. O método que transformou mais de 5.000 operadores.
+  </p>
+
+  <div class="hero-buttons au">
+    <a class="btn-tg" href="https://t.me/+VyqWQFKFy3U5Mjdh" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      ENTRAR NA COMUNIDADE — DE GRAÇA
+    </a>
+    <a class="btn-tg-sm" href="#prova">
+      Será que é pra mim? ↓
+    </a>
+  </div>
+
+  <p class="note">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Acesso imediato · Sem cartão · Sem compromisso
+  </p>
+
+</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item">Cronologia das Velas Rosas</span>
+    <span class="marquee-item">Minuto Dominante</span>
+    <span class="marquee-item">Viver de Férias</span>
+    <span class="marquee-item">Dash Cronos</span>
+    <span class="marquee-item">Titã do Gráfico</span>
+    <span class="marquee-item">Cronologia das Velas Rosas</span>
+    <span class="marquee-item">Minuto Dominante</span>
+    <span class="marquee-item">Viver de Férias</span>
+    <span class="marquee-item">Dash Cronos</span>
+    <span class="marquee-item">Titã do Gráfico</span>
+    <span class="marquee-item">Cronologia das Velas Rosas</span>
+    <span class="marquee-item">Minuto Dominante</span>
+    <span class="marquee-item">Viver de Férias</span>
+    <span class="marquee-item">Dash Cronos</span>
+    <span class="marquee-item">Titã do Gráfico</span>
+  </div>
+</div>
+
+<!-- PROVA SOCIAL -->
+<section class="sec" id="prova">
+<div class="w">
+  <p class="sl au">Resultados reais da comunidade</p>
+  <h2 class="au">Quem já opera com a<br><span class="hl">Cronologia</span></h2>
+
+  <div class="stats-row au">
+    <div class="stat-card">
+      <div class="stat-num">5.000+</div>
+      <div class="stat-label">Operadores</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Lives / dia</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2+</div>
+      <div class="stat-label">Anos ativo</div>
+    </div>
+  </div>
+
+  <div class="proof-grid">
+    <div class="proof-card au">
+      <div class="proof-person">
+        <div class="proof-av">IM</div>
+        <div><div class="proof-name">Israel Matos</div><div class="proof-city">Bahia</div></div>
+      </div>
+      <p class="proof-quote">"Saí de 100 pra 550. Só vela top, você é fera demais irmão."</p>
+      <span class="proof-amount">+R$450 de lucro</span>
+    </div>
+
+    <div class="proof-card au">
+      <div class="proof-person">
+        <div class="proof-av">PF</div>
+        <div><div class="proof-name">Penna Forte</div><div class="proof-city">Aluno Black</div></div>
+      </div>
+      <p class="proof-quote">"Transferência de R$2.200 recebida. Margem de erro controlada, banca alta consistente."</p>
+      <span class="proof-amount">R$2.200 transferido</span>
+    </div>
+
+    <div class="proof-card au">
+      <div class="proof-person">
+        <div class="proof-av">T</div>
+        <div><div class="proof-name">Thiago</div><div class="proof-city">Goiânia, GO</div></div>
+      </div>
+      <p class="proof-quote">"100 pra 380. Vela de 12x pegada na sessão ao vivo. Banca subindo com consistência."</p>
+      <span class="proof-amount">+R$280 na sessão</span>
+    </div>
+
+    <div class="proof-card au">
+      <div class="proof-person">
+        <div class="proof-av">M</div>
+        <div><div class="proof-name">Moacir</div><div class="proof-city">São Paulo, SP</div></div>
+      </div>
+      <p class="proof-quote">"Pix de R$700 recebido. Fiz um mais cedo aí professor. A diária."</p>
+      <span class="proof-amount">R$700 / dia</span>
+    </div>
+
+    <div class="proof-card au">
+      <div class="proof-person">
+        <div class="proof-av">A</div>
+        <div><div class="proof-name">Aluno da comunidade</div><div class="proof-city">Salvador, BA</div></div>
+      </div>
+      <p class="proof-quote">"De 12k pra 14.600. Tirei 100 pra comer um negócio. Pega a de hoje aí professor."</p>
+      <span class="proof-amount">+R$2.600 na banca</span>
+    </div>
+
+    <div class="proof-card au">
+      <div class="proof-person">
+        <div class="proof-av">SL</div>
+        <div><div class="proof-name">Samuel Lima</div><div class="proof-city">Campinas, SP</div></div>
+      </div>
+      <p class="proof-quote">"Tu é fera demais, valeu por nos proporcionar suas estratégias com a gente."</p>
+      <span class="proof-amount">Operando com método</span>
+    </div>
+  </div>
+
+  <div class="quote-block au">
+    <p>"Essa ferramenta tem me ajudado bastante. Pra mim tá sendo um investimento bem válido."</p>
+    <div class="attr">Penna Forte — Aluno Black</div>
+  </div>
+
+  <!-- MID CTA -->
+  <div style="text-align:center;margin-top:32px" class="au">
+    <a class="btn-tg" href="https://t.me/+VyqWQFKFy3U5Mjdh" target="_blank" rel="noopener" style="max-width:420px;margin:0 auto">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      GARANTIR MINHA VAGA AGORA
+    </a>
+  </div>
+
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" style="padding-top:0">
+<div class="w">
+  <p class="sl au">Tudo que você precisa saber</p>
+  <h2 class="au">Perguntas<br><span class="hl">frequentes</span></h2>
+
+  <div class="faq">
+    <div class="fi au">
+      <div class="fq" onclick="ft(this)">O que eu vou ter acesso?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="fa">Lives diárias ao vivo, análise da Cronologia das Velas Rosas, acesso à comunidade ativa com mais de 5.000 operadores, dicas de gestão de banca e suporte direto no grupo.</div>
+    </div>
+    <div class="fi au">
+      <div class="fq" onclick="ft(this)">É gratuito mesmo? Qual o truque?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="fa">Sim, 100% gratuito. A comunidade é aberta porque resultados reais falam por si. Quando você vir o método funcionar, pode escolher avançar para programas pagos — mas a entrada é sempre free.</div>
+    </div>
+    <div class="fi au">
+      <div class="fq" onclick="ft(this)">Preciso ter experiência no Aviator?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="fa">Não. O método foi pensado para iniciantes. Você aprende a ler o gráfico do zero e opera com gestão desde o primeiro dia. Alunos relatam resultados consistentes começando com bancas de R$100 a R$500.</div>
+    </div>
+    <div class="fi au">
+      <div class="fq" onclick="ft(this)">Quanto tempo preciso dedicar por dia?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="fa">Menos de 1 hora por dia. O conceito "Viver de Férias" é exatamente isso — bater a meta na sessão e sair. Sem ficar o dia inteiro grudado no gráfico.</div>
+    </div>
+    <div class="fi au">
+      <div class="fq" onclick="ft(this)">Funciona mesmo? Não é mais um guru?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="fa">Entendemos a desconfiança. Por isso a comunidade é gratuita: entre, observe por 7 dias, assista as lives e julgue com seus próprios olhos. Sem cartão, sem compromisso.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="fin">
+<div class="w">
+  <h2 class="au">É mais fácil <span class="hl">aprender certo</span><br>do que perder dinheiro<br>fazendo <span style="color:var(--mut)">tudo errado.</span></h2>
+  <p class="au">Milhares de operadores já tomaram essa decisão. A diferença entre você e eles é um clique.</p>
+  <div class="au">
+    <a class="btn-tg" href="https://t.me/+VyqWQFKFy3U5Mjdh" target="_blank" rel="noopener" style="max-width:420px;margin:0 auto;border-radius:8px">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      ⚡ QUERO ENTRAR NA COMUNIDADE AGORA
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <strong>Cronos — Titã do Gráfico</strong> — Todos os direitos reservados</p>
+  <p style="margin-top:6px"><a href="#">Política de Privacidade</a> &nbsp;·&nbsp; <a href="#">Termos de Uso</a></p>
+</footer>
+
+<p class="disclaimer">Os produtos e serviços apresentados neste site não devem ser interpretados como promessa ou garantia de resultados. Resultados variam de pessoa para pessoa. Jogos de azar envolvem riscos — jogue com responsabilidade.</p>
+
+<!-- FLOATING TELEGRAM -->
+<a class="wf" href="https://t.me/+VyqWQFKFy3U5Mjdh" target="_blank" rel="noopener" aria-label="Telegram">
+  <svg width="25" height="25" viewBox="0 0 24 24" fill="#fff"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+</a>
+
+<script>
+const ob = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('v'); ob.unobserve(e.target); } });
+}, {threshold:.1});
+document.querySelectorAll('.au').forEach(el => ob.observe(el));
+
+function ft(btn){
+  const it = btn.closest('.fi');
+  const op = it.classList.contains('open');
+  document.querySelectorAll('.fi.open').forEach(i => i.classList.remove('open'));
+  if(!op) it.classList.add('open');
+}
+</script>
+
+</body>
+</html>
