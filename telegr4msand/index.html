@@ -73,14 +73,14 @@ body {
 
 .hero-img {
   position: relative;
-  height: 520px;
+  height: 360px;
   overflow: hidden;
 }
 .hero-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 22%;
   filter: contrast(1.06) saturate(1.08);
 }
 .hero-img::before {
@@ -104,15 +104,15 @@ body {
   text-shadow: 0 0 24px rgba(227,6,19,0.6);
   letter-spacing: -1px;
 }
-.mult.m1 { top: 8%;  left: 4%;   font-size: 58px; transform: rotate(-8deg); }
-.mult.m2 { top: 22%; right: 5%;  font-size: 44px; transform: rotate(7deg); }
-.mult.m3 { top: 48%; left: 3%;   font-size: 52px; transform: rotate(-5deg); opacity: 0.14; }
-.mult.m4 { bottom: 20%; right: 4%; font-size: 38px; transform: rotate(9deg); }
+.mult.m1 { top: 8%;  left: 4%;   font-size: 44px; transform: rotate(-8deg); }
+.mult.m2 { top: 22%; right: 5%;  font-size: 34px; transform: rotate(7deg); }
+.mult.m3 { top: 48%; left: 3%;   font-size: 38px; transform: rotate(-5deg); opacity: 0.14; }
+.mult.m4 { bottom: 16%; right: 4%; font-size: 30px; transform: rotate(9deg); }
 
 /* brand stamp on top of hero */
 .brand-stamp {
   position: absolute;
-  bottom: 28px;
+  bottom: 16px;
   left: 0; right: 0;
   text-align: center;
   z-index: 3;
@@ -120,7 +120,7 @@ body {
 }
 .brand-name {
   font-family: 'Anton', sans-serif;
-  font-size: 56px;
+  font-size: 42px;
   letter-spacing: 2px;
   line-height: 0.92;
   text-transform: uppercase;
@@ -130,15 +130,15 @@ body {
 .brand-accent {
   display: block;
   color: var(--red);
-  font-size: 50px;
+  font-size: 36px;
   margin-top: 2px;
   text-shadow: 0 0 20px rgba(227,6,19,0.5), 0 4px 14px rgba(0,0,0,0.9);
 }
-.brand-accent svg { vertical-align: -4px; margin-left: 4px; }
+.brand-accent svg { vertical-align: -3px; margin-left: 4px; width: 30px; height: 30px; }
 
 /* ======= HEADLINE ======= */
 .headline-block {
-  padding: 28px 22px 8px;
+  padding: 16px 22px 4px;
   text-align: center;
   position: relative;
   z-index: 2;
@@ -151,13 +151,13 @@ body {
   background: rgba(227,6,19,0.12);
   border: 1px solid rgba(227,6,19,0.55);
   color: #ff5252;
-  padding: 6px 14px;
+  padding: 5px 13px;
   border-radius: 100px;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.4px;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 .live-dot {
   width: 8px; height: 8px;
@@ -173,19 +173,19 @@ body {
 
 .headline {
   font-family: 'Anton', sans-serif;
-  font-size: 34px;
+  font-size: 27px;
   line-height: 1.02;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 .headline .red { color: var(--red); }
 .headline .nowrap { white-space: nowrap; }
 
 .subheadline {
-  font-size: 15px;
+  font-size: 13.5px;
   color: var(--text-dim);
-  line-height: 1.55;
+  line-height: 1.5;
   max-width: 380px;
   margin: 0 auto 4px;
 }
@@ -193,7 +193,7 @@ body {
 
 /* ======= PRIMARY CTA (early in flow) ======= */
 .cta-wrap {
-  padding: 22px 22px 8px;
+  padding: 12px 22px 6px;
 }
 
 .cta-btn {
@@ -202,13 +202,13 @@ body {
   justify-content: center;
   gap: 12px;
   width: 100%;
-  padding: 19px 20px;
+  padding: 16px 18px;
   background: var(--tg-blue);
   color: #fff;
   text-decoration: none;
   border-radius: 14px;
   font-family: 'Anton', sans-serif;
-  font-size: 21px;
+  font-size: 19px;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   box-shadow: 0 10px 28px rgba(34,158,217,0.42), inset 0 1px 0 rgba(255,255,255,0.18);
@@ -400,10 +400,11 @@ footer {
 
 /* ======= RESPONSIVE TIGHTENING ======= */
 @media (max-width: 380px) {
-  .brand-name { font-size: 48px; }
-  .brand-accent { font-size: 42px; }
-  .headline { font-size: 30px; }
-  .hero-img { height: 460px; }
+  .brand-name { font-size: 36px; }
+  .brand-accent { font-size: 30px; }
+  .headline { font-size: 24px; }
+  .hero-img { height: 320px; }
+  .cta-btn { font-size: 17px; padding: 14px 16px; }
 }
 </style>
 <script>
@@ -469,7 +470,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <div class="brand-stamp">
         <span class="brand-name">SANDERSON</span>
         <span class="brand-accent">AVIATOR
-          <svg width="42" height="42" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5C13 2.67 12.33 2 11.5 2S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5C13 2.67 12.33 2 11.5 2S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
         </span>
       </div>
     </div>
@@ -483,7 +484,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <span class="red">JOGANDO NO ESCURO</span>
     </h1>
     <p class="subheadline">
-      O Sanderson abriu vagas no <strong>grupo oficial dele no Telegram</strong>. Quem entra hoje recebe a lista de sinais, participa das <strong>2 lives diárias</strong> e aprende o método de minutagem usado pra atacar velas acima de 50x.
+      Vagas abertas no <strong>grupo oficial dele no Telegram</strong>. Lista de sinais + <strong>2 lives diárias</strong> + método de minutagem pra velas acima de 50x.
     </p>
   </section>
 
