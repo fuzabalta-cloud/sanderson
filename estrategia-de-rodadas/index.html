@@ -551,15 +551,8 @@
       var delayMs = 568000;
       var quickPreview = new URLSearchParams(window.location.search).has('show');
       var delayed = document.querySelectorAll('.delayed');
-      var leadDelayTracked = false;
-      function trackLeadDelay() {
-        if (leadDelayTracked || typeof fbq !== 'function') return;
-        leadDelayTracked = true;
-        fbq('trackCustom', 'leadDelayVSL');
-      }
       function reveal() {
         delayed.forEach(function (el) { el.classList.add('show'); });
-        trackLeadDelay();
       }
       window.setTimeout(reveal, quickPreview ? 300 : delayMs);
 
