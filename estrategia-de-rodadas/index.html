@@ -6,6 +6,20 @@
   <meta name="description" content="Sanderson Araujo - Estratégia de Rodadas para buscar velas rosas com mais consciência no gráfico.">
   <meta name="theme-color" content="#0f0b07">
   <title>Sanderson - Estratégia de Rodadas</title>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1558603059180021');
+    fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
   <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
   <link rel="preload" href="https://scripts.converteai.net/ef9987e4-45c8-4851-adea-85ddfad5d0d1/players/6a5051974f08a390f5d8ce96/v4/player.js" as="script">
   <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
@@ -398,6 +412,7 @@
   </style>
 </head>
 <body>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1558603059180021&ev=PageView&noscript=1" /></noscript>
   <main class="page">
     <section class="hero">
       <h1>Descubra como a <span class="gold">Estratégia de Rodadas</span> vai mudar a sua forma de buscar velas rosas no gráfico</h1>
@@ -536,8 +551,15 @@
       var delayMs = 568000;
       var quickPreview = new URLSearchParams(window.location.search).has('show');
       var delayed = document.querySelectorAll('.delayed');
+      var leadDelayTracked = false;
+      function trackLeadDelay() {
+        if (leadDelayTracked || typeof fbq !== 'function') return;
+        leadDelayTracked = true;
+        fbq('trackCustom', 'leadDelayVSL');
+      }
       function reveal() {
         delayed.forEach(function (el) { el.classList.add('show'); });
+        trackLeadDelay();
       }
       window.setTimeout(reveal, quickPreview ? 300 : delayMs);
 
