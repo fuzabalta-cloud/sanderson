@@ -708,5 +708,52 @@
       </div>
     </footer>
   </main>
+  <!-- PIXEL + TRACKEAMENTO GRUPO WPP — funil: sand — colar antes do </body> -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1651636499445565');
+fbq('track', 'PageView');
+(function () {
+  var FUNIL = 'sand';
+  var REDIRECT = 'https://n8n.fuzabalta.com.br/webhook/go-grupo';
+  function getCookie(name) {
+    var m = document.cookie.match('(^|;)\\s*' + name + '=([^;]+)');
+    return m ? decodeURIComponent(m[2]) : '';
+  }
+  function buildUrl() {
+    var p = new URLSearchParams(window.location.search);
+    var q = new URLSearchParams();
+    q.set('f', FUNIL);
+    var fbclid = p.get('fbclid') || '';
+    if (fbclid) q.set('fbclid', fbclid);
+    var fbc = getCookie('_fbc');
+    if (!fbc && fbclid) fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+    if (fbc) q.set('fbc', fbc);
+    var fbp = getCookie('_fbp');
+    if (fbp) q.set('fbp', fbp);
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function (u) {
+      if (p.get(u)) q.set(u, p.get(u));
+    });
+    q.set('src', window.location.href.split('?')[0]);
+    return REDIRECT + '?' + q.toString();
+  }
+  function apply() {
+    var url = buildUrl();
+    var els = document.querySelectorAll('a[href*="chat.whatsapp.com"], a[href*="wa.me/"], a[href*="api.whatsapp.com"], a[data-grupo], [data-grupo] a');
+    els.forEach(function (a) { a.setAttribute('href', url); });
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', apply); }
+  else { apply(); }
+  setTimeout(apply, 2000);
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href*="chat.whatsapp.com"], a[href*="wa.me/"], a[href*="api.whatsapp.com"], a[href*="/webhook/go-grupo"], a[data-grupo], [data-grupo] a') : null;
+    if (a) a.setAttribute('href', buildUrl());
+  }, true);
+})();
+</script>
 </body>
 </html>
