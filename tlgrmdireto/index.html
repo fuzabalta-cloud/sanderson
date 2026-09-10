@@ -32,8 +32,6 @@
 
     body {
       min-height: 100vh;
-      display: grid;
-      place-items: center;
       background:
         radial-gradient(circle at top, rgba(24, 165, 255, 0.12), transparent 34%),
         linear-gradient(180deg, #06101d 0%, #010306 100%);
@@ -42,12 +40,11 @@
     }
 
     .page {
-      width: min(100%, 460px);
+      width: 100%;
       min-height: 100svh;
       position: relative;
       overflow: hidden;
       background: #02070d;
-      box-shadow: 0 0 80px rgba(0, 0, 0, 0.52);
     }
 
     .page::before {
@@ -196,10 +193,10 @@
     .brand b { color: var(--blue); }
 
     .timer {
-      flex: 0 0 174px;
+      flex: 0 0 auto;
       min-width: 0;
       height: 40px;
-      padding: 4px 4px 4px 10px;
+      padding: 4px 14px 4px 10px;
       border: 1px solid rgba(67, 220, 255, 0.22);
       border-radius: 999px;
       display: flex;
@@ -245,11 +242,11 @@
       position: relative;
       z-index: 4;
       min-height: calc(100svh - 62px);
-      padding: min(30vh, 232px) 22px 14px;
+      padding: 18px 22px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: flex-end;
       text-align: center;
     }
 
@@ -359,8 +356,8 @@
 
     .legal {
       width: calc(100% + 44px);
-      margin: 0 -22px;
-      padding: 11px 32px 0;
+      margin: 14px -22px 0;
+      padding: 11px 32px max(10px, env(safe-area-inset-bottom));
       color: #0b1420;
       background: #fff;
       text-align: center;
@@ -395,6 +392,31 @@
     }
 
     .legal-box b { color: #139cff; }
+
+    @media (min-width: 861px) {
+      .topbar { height: 76px; padding: 16px 5vw; }
+      .brand { font-size: 15px; }
+      .brand-icon { width: 42px; height: 42px; }
+      .timer-label { font-size: 9.5px; }
+      .content { min-height: calc(100svh - 76px); padding-inline: 5vw; }
+      .badge { font-size: 12px; padding: 10px 20px; letter-spacing: 3px; }
+      h1 { max-width: 980px; font-size: clamp(52px, 6.2vw, 82px); }
+      .cta { width: auto; min-width: 400px; min-height: 66px; font-size: 17px; border-radius: 12px; }
+      .copy-box {
+        width: 100%; max-width: 780px; margin-inline: 0;
+        border: 1px solid rgba(67, 220, 255, 0.25); border-radius: 14px;
+        font-size: 17px; padding: 16px 30px;
+      }
+      .telegram-note { font-size: 14px; }
+      .legal { width: 100vw; margin-inline: calc(50% - 50vw); padding: 16px 5vw max(14px, env(safe-area-inset-bottom)); }
+      .legal-box { max-width: 880px; margin: 0 auto; min-height: 62px; }
+      .legal-box span { max-width: none; font-size: 10.5px; }
+      .legal-box strong { font-size: 30px; }
+      .history { left: -40px; right: -40px; bottom: 140px; grid-template-columns: repeat(14, 1fr); gap: 8px; }
+      .tile { min-height: 66px; font-size: 14px; }
+      .flight-curve { top: 32vh; height: 150px; }
+      .page::before { background-position: center 22%; }
+    }
 
     @media (max-width: 380px) {
       .topbar { padding-inline: 10px; gap: 6px; }
@@ -439,10 +461,9 @@
         <span class="brand-icon" aria-hidden="true"></span>
         <span>Sanderson <b>Araújo</b></span>
       </div>
-      <div class="timer" aria-label="Seu acesso grátis expira em">
+      <div class="timer" aria-label="Acesso gratuito pelo Telegram">
         <span class="timer-dot" aria-hidden="true"></span>
-        <span class="timer-label">Seu acesso grátis expira em</span>
-        <strong id="countdown">02:00</strong>
+        <span class="timer-label">Acesso gratuito<br>pelo Telegram</span>
       </div>
     </header>
 
@@ -475,23 +496,5 @@
     </section>
   </main>
 
-  <script>
-    const countdown = document.querySelector("#countdown");
-    let secondsLeft = 120;
-
-    function formatTime(totalSeconds) {
-      const minutes = Math.floor(totalSeconds / 60);
-      const seconds = totalSeconds % 60;
-      return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-    }
-
-    function tick() {
-      countdown.textContent = formatTime(secondsLeft);
-      if (secondsLeft > 0) secondsLeft -= 1;
-    }
-
-    tick();
-    setInterval(tick, 1000);
-  </script>
 </body>
 </html>
